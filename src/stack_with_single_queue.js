@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * Create a stack with a queue.
+ */
+
 let Queue = require('./lib/SimpleQueue') ;
 
 function Stack(){

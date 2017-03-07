@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * Crate a stack with two queues.
+ */
+
 let Queue = require('./lib/SimpleQueue') ;
 
 let commonFunctions = {
