@@ -1,81 +1,72 @@
 'use strict'
 
-var Queue = require('./lib/SimpleQueu')
+let Queue = require('./lib/SimpleQueue') ;
+
+let commonFunctions = {
+    isEmpty: function(){
+        return this._pushQueue.isEmpty() && this._popQueue.isEmpty() ;
+    },
+    size: function(){
+        return this._pushQueue.size() + this._popQueue.size() ;
+    },
+    _switchQ: function(){
+        let tmp = this._pushQueue ;
+        this._pushQueue = this._popQueue ;
+        this._popQueue = tmp ;
+    }
+}
 
 /**
  * favor push()
  */
 function Stack1(){
-    let pushQueue = new Queue() ;
-    let popQueue = new Queue() ;
-
-    function switchQ(){
-        let tmp = pushQueue ;
-        pushQueue = popQueue ;
-        popQueue = tmp ;
-    }
-
-    this.pop = function(){
-        if(pushQueue.size() > 1){
-            while(pushQueue.size() > 1){
-                popQueue.enqueue(pushQueue.dequeue()) ;
-            }
-        }
-
-        switchQ() ;
-
-        return popQueue.dequeue() ;
-    }
-
-    this.push = function(it){
-        pushQueue.enqueue(it) ;
-    }
-
-    this.isEmpty = function(){
-        return pushQueue.isEmpty() && popQueue.isEmpty() ;
-    }
-
-    this.size = function(){
-        return pushQueue.size() + popQueue.size() ;
-    }
+    this._pushQueue = new Queue() ;
+    this._popQueue = new Queue() ;
 }
+
+Stack1.prototype.pop = function(){
+    if(this._pushQueue.size() > 1){
+        while(this._pushQueue.size() > 1){
+            this._popQueue.enqueue(this._pushQueue.dequeue()) ;
+        }
+    }
+
+    this._switchQ() ;
+
+    return this._popQueue.dequeue() ;
+}
+
+Stack1.prototype.push = function(it){
+    this._pushQueue.enqueue(it) ;
+}
+
+Object.assign(Stack1.prototype, commonFunctions) ;
 
 /**
  * favor pop()
  */
 function Stack2(){
-    let pushQueue = new Queue() ;
-    let popQueue = new Queue() ;
-
-    function switchQ(){
-        let tmp = pushQueue ;
-        pushQueue = popQueue ;
-        popQueue = tmp ;
-    }
-
-    this.pop = function(){
-        return popQueue.dequeue() ;
-    }
-
-    this.push = function(it){
-        pushQueue.enqueue(it) ;
-
-        while(!popQueue.isEmpty()){
-            pushQueue.enqueue(popQueue.dequeue()) ;
-        }
-
-        switchQ() ;
-    }
-
-    this.isEmpty = function(){
-        return pushQueue.isEmpty() && popQueue.isEmpty() ;
-    }
-
-    this.size = function(){
-        return pushQueue.size() + popQueue.size() ;
-    }
+    this._pushQueue = new Queue() ;
+    this._popQueue = new Queue() ;
 }
 
+Stack2.prototype.pop = function(){
+    return this._popQueue.dequeue() ;
+}
+
+Stack2.prototype.push = function(it){
+    this._pushQueue.enqueue(it) ;
+
+    while(!this._popQueue.isEmpty()){
+        this._pushQueue.enqueue(this._popQueue.dequeue()) ;
+    }
+
+    this._switchQ() ;
+}
+
+Object.assign(Stack2.prototype, commonFunctions) ;
+
+/************************************************** */
 let stack = new Stack1() ;
 console.log('test stack1') ;
 stack.push(1) ;

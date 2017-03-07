@@ -1,25 +1,25 @@
 'use strict'
 
 function Stack(){
-    let arr = [] ;
+    this._arr = [] ;
+}
 
-    this.push = function(it){
-        arr.push(it) ;
-    }
+Stack.prototype.push = function(it){
+    this._arr.push(it) ;
+}
 
-    this.pop = function(){
-        if(arr.length > 0){
-            return arr.pop() ;
-        }
+Stack.prototype.pop = function(){
+    if(this._arr.length > 0){
+        return this._arr.pop() ;
     }
+}
 
-    this.isEmpty = function(){
-        return arr.length === 0 ;
-    }
+Stack.prototype.isEmpty = function(){
+    return this._arr.length === 0 ;
+}
 
-    this.size = function(){
-        return arr.length ;
-    }
+Stack.prototype.size = function(){
+    return this._arr.length ;
 }
 
 module.exports = Stack ;

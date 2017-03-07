@@ -1,6 +1,10 @@
 'use strict'
 
-var Stack = require('./lib/SimpleStack')
+/**
+ * Create a FIFO queue with two stacks.
+ */
+
+let Stack = require('./lib/SimpleStack')
 
 function Queue(){
     let inStack = new Stack() ;

@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * Find the max product of three number in an array. 
+ */
+
 function maxProductMethod1(arr){
     if(arr.length < 3) throw(new Error("There are less than 3 items in the array.!!"))
     arr.sort(function(a, b){

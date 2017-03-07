@@ -1,23 +1,23 @@
 'use strict'
 
 function Queue(){
-    let arr = [] ;
+    this._arr = [] ;
+}
 
-    this.enqueue = function(it){
-        arr.push(it) ;
-    }
+Queue.prototype.enqueue = function(it){
+    this._arr.push(it) ;
+}
 
-    this.dequeue = function(){
-        return arr.shift() ;
-    }
+Queue.prototype.dequeue = function(it){
+    return this._arr.shift() ;
+}
 
-    this.isEmpty = function(){
-        return arr.length === 0 ;
-    }
+Queue.prototype.isEmpty = function(){
+    return this._arr.length === 0 ;
+}
 
-    this.size = function(){
-        return arr.length ;
-    }
+Queue.prototype.size = function(){
+    return this._arr.length ;
 }
 
 module.exports = Queue ;

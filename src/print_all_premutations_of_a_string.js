@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * Print all premutations of a string.
+ */
+
 function preMutation(str, prefix=''){ 
     if(str.length === 1){
         console.log(prefix+str) ;
