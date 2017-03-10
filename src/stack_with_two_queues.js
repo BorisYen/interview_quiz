@@ -5,6 +5,7 @@
  */
 
 let Queue = require('./lib/SimpleQueue') ;
+let printStack = require('./lib/utils').printStack ;
 
 let commonFunctions = {
     isEmpty: function(){
@@ -78,9 +79,7 @@ stack.push(3) ;
 stack.push(8) ;
 stack.push(5) ;
 
-while(!stack.isEmpty()){
-    console.log(stack.pop()) ;
-}
+printStack(stack) ;
 
 stack = new Stack2() ;
 console.log('test stack2') ;
@@ -89,6 +88,4 @@ stack.push(33) ;
 stack.push(88) ;
 stack.push(55) ;
 
-while(!stack.isEmpty()){
-    console.log(stack.pop()) ;
-}
+printStack(stack) ;

@@ -4,7 +4,8 @@
  * Create a FIFO queue with two stacks.
  */
 
-let Stack = require('./lib/SimpleStack')
+let Stack = require('./lib/SimpleStack') ;
+let printQueue = require('./lib/utils').printQueue ;
 
 function Queue(){
     let inStack = new Stack() ;
@@ -43,8 +44,6 @@ que.enqueue('e') ;
 
 console.log('Before dequeue queue size is: '+que.size()) ;
 
-while(!que.isEmpty()){
-    console.log(que.dequeue()) ;
-}
+printQueue(que) ;
 
 console.log('After dequeue queue size is: '+que.size()) ;

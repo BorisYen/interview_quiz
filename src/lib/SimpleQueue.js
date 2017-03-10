@@ -20,4 +20,12 @@ Queue.prototype.size = function(){
     return this._arr.length ;
 }
 
+Queue.prototype.peek = function(){
+    let firstE = this._arr.shift() ;
+
+    this._arr.unshift(firstE) ;
+
+    return firstE ;
+}
+
 module.exports = Queue ;

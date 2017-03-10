@@ -5,6 +5,7 @@
  */
 
 let Queue = require('./lib/SimpleQueue') ;
+let printStack = require('./lib/utils').printStack ;
 
 function Stack(){
     this._queue = new Queue() ;
@@ -39,6 +40,4 @@ stack.push(3) ;
 stack.push(8) ;
 stack.push(5) ;
 
-while(!stack.isEmpty()){
-    console.log(stack.pop()) ;
-}
+printStack(stack) ;

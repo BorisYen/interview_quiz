@@ -22,4 +22,12 @@ Stack.prototype.size = function(){
     return this._arr.length ;
 }
 
+Stack.prototype.peek = function(){
+    let top = this._arr.pop() ;
+    
+    this._arr.push(top) ;
+
+    return top ;
+}
+
 module.exports = Stack ;
