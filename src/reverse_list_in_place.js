@@ -1,9 +1,8 @@
 'use strict'
 
-function ListNode(value){
-    this.value = value ;
-    this.next = null ;
-}
+let utils = require('./lib/utils') ;
+let insertList = utils.insertList ;
+let printList = utils.printList ;
 
 function reverseList(list=null){
     let preNode = null ;
@@ -33,33 +32,6 @@ function reverseListRecursively(list=null, pre=null){
         list.next = pre ;
 
         return head ;
-    }
-}
-
-function printList(list=null){
-    while(list != null){
-        console.log(list.value) ;
-        list = list.next ;
-    }
-}
-
-function insertList(list=null, value){
-    if(value){
-        if(!list){
-            return new ListNode(value) ;
-        } else {
-            let curNode = list ;
-
-            while(curNode !== null){
-                if(!curNode.next) {
-                    curNode.next = new ListNode(value) ;
-                    break ;
-                }
-                curNode = curNode.next ;
-            }
-
-            return list ;
-        }
     }
 }
 
