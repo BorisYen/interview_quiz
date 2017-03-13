@@ -1,7 +1,7 @@
 'use strict'
 
 let utils = require('./lib/utils') ;
-let insertList = utils.insertList ;
+let createList = utils.createList ;
 let printList = utils.printList ;
 
 function deleteNode(node){
@@ -11,16 +11,11 @@ function deleteNode(node){
         node.next = tmp.next ;
     } else {
         if(node)
-            node.value = null ; // this is just a indicator meaning that this node is dummy (null)
+            node.value = null ; // create an indicator saying this is the end of the list.
     }
 }
 
-let list = insertList(null, 1) ;
-insertList(list, 2) ;
-insertList(list, 3) ;
-insertList(list, 4) ;
-insertList(list, 5) ;
-insertList(list, 6) ;
+let list = createList([1, 2, 3, 4, 5, 6]) ;
 
 deleteNode(list) ;
 

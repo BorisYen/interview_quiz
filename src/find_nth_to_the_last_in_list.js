@@ -1,7 +1,7 @@
 'use strict'
 
 let utils = require('./lib/utils') ;
-let insertList = utils.insertList ;
+let createList = utils.createList ;
 let printList = utils.printList ;
 
 /**
@@ -31,12 +31,7 @@ function findNthToTheLast(l, n){
     return head.value ;
 }
 
-let list = insertList(null, 1) ;
-insertList(list, 2) ;
-insertList(list, 3) ;
-insertList(list, 4) ;
-insertList(list, 5) ;
-insertList(list, 6) ;
+let list = createList([1, 2, 3, 4, 5, 6]) ;
 
 console.log(findNthToTheLast(list, 2)) ;
 console.log(findNthToTheLast(list, 4)) ;
