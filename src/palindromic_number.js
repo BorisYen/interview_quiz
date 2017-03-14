@@ -1,6 +1,6 @@
 'use strict'
 
-function palindromicNumber(number=null){
+function palindromicNumber1(number=null){
     if(number/10 === 0) return true ; // single digit.
 
     let tmp = number;
@@ -19,6 +19,32 @@ function palindromicNumber(number=null){
     return true ;
 }
 
-console.log(palindromicNumber(123454321)) ;
-console.log(palindromicNumber(12)) ;
-console.log(palindromicNumber(12021)) ;
+/**
+ * this is better. 
+ */
+function palindromicNumber2(number=null){
+    if(number){
+        let n = number ;
+        let rev = 0 ;
+
+        while(n>0){
+            let lastDigit = n%10 ;
+            rev = rev*10+lastDigit ;
+            n = Math.floor(n/10);
+        }
+
+        if(number == rev)
+            return true ;
+        else  
+            return false ;
+    }
+}
+
+console.log('solution one') ;
+console.log(palindromicNumber1(123454321)) ;
+console.log(palindromicNumber1(12)) ;
+console.log(palindromicNumber1(12021)) ;
+console.log('solution two') ;
+console.log(palindromicNumber2(123454321)) ;
+console.log(palindromicNumber2(12)) ;
+console.log(palindromicNumber2(12021)) ;

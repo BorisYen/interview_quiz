@@ -1,5 +1,7 @@
 'use strict'
 
+const BST = require('./BST') ;
+
 function ListNode(value){
     this.value = value ;
     this.next = null ;
@@ -36,8 +38,11 @@ module.exports = {
             console.log(q.dequeue()) ;
         }
     },
-    printJson(o){
-        console.log(JSON.stringify(o)) ;
+    printJson(o, pretty=false){
+        if(pretty)
+            console.log(JSON.stringify(o, null, 4)) ;
+        else
+            console.log(JSON.stringify(o)) ;
     },
     printList(l){
         while(l){
@@ -52,5 +57,17 @@ module.exports = {
         }
 
         return list ;
-    }
+    },
+    createBST(elements){
+        let root = null ;
+
+        for(let i=0; i<elements.length; i++){
+            root = BST.insert(elements[i], root) ;
+        }
+
+        return root ;
+    },
+    printBSTPreOrder: BST.printPreOrder,
+    printBSTInOrder: BST.printInOrder,
+    printBSTPostOrder: BST.printPostOrder
 }
