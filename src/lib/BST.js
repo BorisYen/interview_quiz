@@ -19,6 +19,17 @@ function insert(value, root=null){
     }
 }
 
+function search(value, root){
+    if(!root || root.value === value)
+        return root ;
+
+    if(value < root.value){
+        return search(value, root.left) ;
+    } else {
+        return search(value, root.right) ;
+    }
+}
+
 function printPreOrder(root=null){
     if(root){
         console.log(root.value) ;

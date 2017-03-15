@@ -5,18 +5,18 @@ function findRotationPoint(arr=null){
 
     let left = 0 ;
     let right = arr.length - 1 ;
-    let mid = (left + right)/2 ;
+    let mid = 0 ;
 
     while(left < right){
-        if(arr[mid] > arr[left]){
+        mid = Math.floor((left + right)/2) ;
+        
+        if(arr[mid] > arr[mid+1]){
+            return mid ;
+        } else if(arr[mid] > arr[left]){
             left = mid ;
         } else {
             right = mid ;
         }
-
-        if(arr[left+1] === arr[right]) return left ;
-
-        mid = Math.floor((left + right)/2) ;
     }
 
     return null ;
