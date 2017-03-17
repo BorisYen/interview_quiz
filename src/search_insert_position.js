@@ -7,10 +7,10 @@
  */
 function searchInsertPosition(arr, target){
     let left = 0 ;
-    let right = arr.length ;
+    let right = arr.length-1 ;
 
-    while(left < right){
-        let mid = Math.floor((left+right)/2) ;
+    while(left <= right){
+        let mid = Math.floor(left + (right - left)/2) ;
         if(arr[mid] === target){
             return mid ;
         } else if(arr[mid] < target){

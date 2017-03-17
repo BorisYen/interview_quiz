@@ -9,31 +9,31 @@ function mergeSortedArray(arrA, arrB){ // store the items backward, so that ther
     let j = arrB.length-1 ;
     let k = arrA.length+arrB.length-1 ;
 
-    while(k >= 0){
-        while(i >= 0 && j >= 0){
-            if(arrA[i] < arrB[j]){
-                arrA[k] = arrB[j] ;
-                k-- ;
-                j-- ;
-            } else {
-                arrA[k] = arrA[i] ;
-                k-- ;
-                i-- ;
-            }
-        }
-
-        while(i >= 0){
+    while(i >= 0 && j >= 0){
+        if(arrA[i] < arrB[j]){
+            arrA[k] = arrB[j] ;
+            j-- ;
+        } else {
             arrA[k] = arrA[i] ;
-            k-- ; 
             i-- ;
         }
-
-        while(j >= 0){
-            arrA[k] = arrB[j] ;
-            k-- ;
-            j-- ;
-        }
+        k-- ;
     }
+
+    while(i >= 0){
+        arrA[k] = arrA[i] ;
+        k-- ; 
+        i-- ;
+    }
+
+    while(j >= 0){
+        arrA[k] = arrB[j] ;
+        k-- ;
+        j-- ;
+    }
+
+    if(k !== -1)
+        console.log('Something wrong'+k) ;
 
     return arrA ;
 }

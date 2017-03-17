@@ -8,7 +8,7 @@ function ListNode(value){
 }
 
 function insertList(list=null, value){
-    if(value){
+    if(value !== null || value !== undefined){
         if(!list){
             return new ListNode(value) ;
         } else {

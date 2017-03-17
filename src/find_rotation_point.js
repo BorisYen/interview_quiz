@@ -15,7 +15,7 @@ function findRotationPoint(arr=null){
     let mid = 0 ;
 
     while(left < right){
-        mid = Math.floor((left + right)/2) ;
+        mid = Math.floor(left + (right - left)/2) ;
         
         if(arr[mid] > arr[mid+1]){ // the rotation point should be the only one that is larger than it's next element.
             return mid ;
