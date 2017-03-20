@@ -58,5 +58,6 @@ module.exports = {
     insert,
     printInOrder,
     printPreOrder,
-    printPostOrder
+    printPostOrder,
+    Node
 }
